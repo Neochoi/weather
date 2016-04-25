@@ -7,19 +7,23 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var weathertype: UILabel!
+    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var weatherImage: UIImageView!
+    
+    
+    var weather: Weather!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        weather = Weather(cityId: "id=2172797", appId: "APPID=9a262618d061858c4d1d1aea98c11ac7")
+        weather.downloadweatherDetails{ () -> () in
+            
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
