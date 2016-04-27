@@ -8,13 +8,13 @@
 
 import Foundation
 
-//api.openweathermap.org/data/2.5/weather?id=2172797&appid=9a262618d061858c4d1d1aea98c11ac7&units=metric
+//http://api.openweathermap.org/data/2.5/weather?id=1787075&appid=9a262618d061858c4d1d1aea98c11ac7&units=metric
 
 
 
 let URL_BASE = "http://api.openweathermap.org/data/2.5/weather?"
 
-let CITY_ID = "id=2172797"
+let CITY_ID = "id=1787075"
 
 let MY_APPID = "appid=9a262618d061858c4d1d1aea98c11ac7"
 

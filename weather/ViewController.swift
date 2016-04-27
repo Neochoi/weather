@@ -22,8 +22,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         weather = Weather(cityId: "id=2172797", appId: "APPID=9a262618d061858c4d1d1aea98c11ac7")
         weather.downloadweatherDetails{ () -> () in
+            self.updataUI()
             
         }
+    }
+    
+    func updataUI(){
+        weathertype.text = weather.mainDesc
+        temperature.text = weather.temperature
+
+        weatherImage.image = UIImage(named: weather.icon)//要把weather.icon作为名字找到图片
+        if weatherImage.image == nil{
+            weatherImage.image = UIImage(named: "unknow")
+        }
+        
     }
 }
 

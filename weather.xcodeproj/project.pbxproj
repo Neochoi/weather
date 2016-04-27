@@ -75,6 +75,14 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
+		C39AD68A1CCF358F00C8A190 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C3FB0A711CC9FAA900E97A92 /* ViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		C3D5A029FB79BF6A0B06E0A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,11 +112,11 @@
 		C3FB0A6E1CC9FAA900E97A92 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				C39AD68A1CCF358F00C8A190 /* View */,
 				C332909D1CCD0BE900310003 /* Constant */,
 				C332909C1CCD089700310003 /* Don't touch */,
 				C38BCCE61CCBD7F5000197BB /* Source */,
 				C3FB0A6F1CC9FAA900E97A92 /* AppDelegate.swift */,
-				C3FB0A711CC9FAA900E97A92 /* ViewController.swift */,
 				C3FB0A731CC9FAA900E97A92 /* Main.storyboard */,
 				C3FB0A761CC9FAA900E97A92 /* Assets.xcassets */,
 				C3FB0A781CC9FAA900E97A92 /* LaunchScreen.storyboard */,
