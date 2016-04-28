@@ -15,7 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var weathertype: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var temp_max: UILabel!
+    @IBOutlet weak var temp_min: UILabel!
     
+    @IBOutlet weak var sunSet: UILabel!
+    
+    @IBOutlet weak var daydate: UILabel!
+    @IBOutlet weak var sunRise: UILabel!
+    @IBOutlet weak var time: UILabel!
     
     var weather: Weather!
     override func viewDidLoad() {
@@ -30,12 +38,19 @@ class ViewController: UIViewController {
     func updataUI(){
         weathertype.text = weather.mainDesc
         temperature.text = weather.temperature
+        cityName.text = weather.cityName
+        temp_max.text = weather.tempMax
+        temp_min.text = weather.tempMin
+        sunSet.text = weather.sunset
+        sunRise.text = weather.sunrise
+        
+        daydate.text = " \(weather.date)"
+        time.text = "\(weather.time)  \(weather.day)"
 
         weatherImage.image = UIImage(named: weather.icon)//要把weather.icon作为名字找到图片
         if weatherImage.image == nil{
             weatherImage.image = UIImage(named: "unknow")
         }
-        
     }
 }
 

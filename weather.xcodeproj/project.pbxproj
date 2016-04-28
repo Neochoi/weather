@@ -83,6 +83,14 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		C39AD68B1CD1FA3300C8A190 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3B5ACDE1CCD1B9800ADB319 /* Weather.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		C3D5A029FB79BF6A0B06E0A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +120,7 @@
 		C3FB0A6E1CC9FAA900E97A92 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				C39AD68B1CD1FA3300C8A190 /* Model */,
 				C39AD68A1CCF358F00C8A190 /* View */,
 				C332909D1CCD0BE900310003 /* Constant */,
 				C332909C1CCD089700310003 /* Don't touch */,
@@ -121,7 +130,6 @@
 				C3FB0A761CC9FAA900E97A92 /* Assets.xcassets */,
 				C3FB0A781CC9FAA900E97A92 /* LaunchScreen.storyboard */,
 				C3FB0A7B1CC9FAA900E97A92 /* Info.plist */,
-				C3B5ACDE1CCD1B9800ADB319 /* Weather.swift */,
 			);
 			path = weather;
 			sourceTree = "<group>";

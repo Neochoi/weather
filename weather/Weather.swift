@@ -12,6 +12,8 @@ import Alamofire
 class Weather{
     private var _weatherType: String!
     private var _temperature: String!
+    private var _tempMax: String!
+    private var _tempMin: String!
     private var _weatherUrl: String!
     private var _cityId: String!
     private var _appId: String!
@@ -21,7 +23,41 @@ class Weather{
     private var _mainDesc: String!
     private var _detailDesc: String!
     private var _icon: String!
+    private var _cityName: String!
     
+    private var _sunset: String!
+    private var _sunrise: String!
+   
+    var sunset: String{
+        get{
+            if _sunset == nil{
+                return  ""
+            }
+            return _sunset
+            
+        }
+        
+    }
+    
+    var sunrise: String{
+        get{
+            if _sunrise == nil{
+                return  ""
+            }
+            return _sunrise
+            
+        }
+        
+    }
+    
+    var cityName: String{
+        get{
+            if _cityName == nil{
+                return ""
+            }
+            return _cityName
+        }
+    }
     var detailDesc:String{
         get{
             if _detailDesc == nil{
@@ -64,6 +100,24 @@ class Weather{
         
     }
     
+    var tempMax: String{
+        get{
+            if _tempMax == nil{
+                return  ""
+            }
+            return _tempMax
+        }
+        
+    }
+    var tempMin: String{
+        get{
+            if _tempMin == nil{
+                return  ""
+            }
+            return _tempMin
+        }
+        
+    }
     var cityId: String{
         return _cityId
     }
@@ -122,6 +176,28 @@ class Weather{
             let result = response.result
             print(result)
             if let dict = result.value as? Dictionary<String,AnyObject>{
+                
+                if let sunSys = dict["sys"] as? Dictionary<String,AnyObject>{
+                    if let sunSet = sunSys["sunset"] as? Double{
+                        let sunset = NSDate(timeIntervalSince1970: sunSet)
+                        let sunsetForMatter = NSDateFormatter()
+                        sunsetForMatter.dateFormat = "hh:mm a"
+                        self._sunset = sunsetForMatter.stringFromDate(sunset)
+                    }
+                    if let sunRise = sunSys["sunrise"] as? Double{
+                        let sunrise = NSDate(timeIntervalSince1970: sunRise)
+                        let sunriseForMatter = NSDateFormatter()
+                        sunriseForMatter.dateFormat = "hh:mm a"
+                        self._sunrise = sunriseForMatter.stringFromDate(sunrise)
+                        
+                    }
+                    
+                }
+                if let cityName = dict["name"] as? String{
+                    
+                     self._cityName = cityName
+                    print(self._cityName)
+                }
                 if let dt = dict["dt"] as? Double{
                     let date = NSDate(timeIntervalSince1970: dt)
                     let timeForMatter = NSDateFormatter()
@@ -140,6 +216,8 @@ class Weather{
                 }
                 
                 if let weatherDesc = dict["weather"] as? [Dictionary<String,AnyObject>] where weatherDesc.count > 0{
+                    
+                    
                     if let mainDesc = weatherDesc[0]["main"] as? String{
                         self._mainDesc = mainDesc
                     }
@@ -162,6 +240,15 @@ class Weather{
                         self._temperature = NSString(format: "%.2f", tempadv) as String
                         print(self._temperature)
                     }
+                    if let tempMax = temp["temp_max"] as? Double{
+                        self._tempMax = NSString(format: "%.2f", tempMax) as String
+                        print(self._tempMax)
+                    }
+                    if let tempMin = temp["temp_min"] as? Double{
+                        self._tempMin = NSString(format: "%.2f", tempMin) as String
+                        print(self._tempMin)
+                    }
+                    
                 }
                 
             }
